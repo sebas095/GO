@@ -7,6 +7,14 @@ type User struct {
   nombre, apellido string
 }
 
+func (this User) nombre_completo() string {
+  return this.nombre + " " + this.apellido;
+}
+
+func (this *User) set_name(n string) {
+  this.nombre = n;
+}
+
 func main() {
   /*
     Forma 1
@@ -18,6 +26,8 @@ func main() {
   // Forma 3
   sebas := new(User);
   sebas.nombre = "Sebas";
-  
-  fmt.Println(sebas.nombre);
+  sebas.apellido = "Duque";
+  sebas.set_name("lol");
+
+  fmt.Println(sebas.nombre_completo());
 }
